@@ -38,7 +38,7 @@ body{
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
 ul{ margin:0; padding:0; list-style:none; }
-h1,h2,h3,h4{ font-family:var(--ff-head); margin:0; font-weight:600; letter-spacing:.02em; }
+h1,h2,h3,h4{ font-family:var(--ff-head); margin:0; font-weight:600; letter-spacing:.02em; text-transform:uppercase; }
 p{ margin:0; }
 svg{ flex-shrink:0; }
 
@@ -201,7 +201,7 @@ svg{ flex-shrink:0; }
   position:absolute; left:26px; right:26px; bottom:24px; z-index:3;
   display:flex; align-items:center; justify-content:space-between;
 }
-.hero-frame-caption b{ display:block; color:#fff; font-family:var(--ff-head); font-size:15.5px; letter-spacing:.03em; }
+.hero-frame-caption b{ display:block; color:#fff; font-family:var(--ff-head); font-size:15.5px; letter-spacing:.03em; text-transform:uppercase; }
 .hero-frame-caption span{ font-size:12px; color:var(--muted); }
 .hero-badge-wrap{
   position:absolute; top:-30px; left:-30px; width:104px; height:104px; z-index:4;
@@ -530,7 +530,7 @@ svg{ flex-shrink:0; }
 }
 .value:hover{ border-color:var(--gold-dim); transform:translateY(-3px); }
 .value-num{ font-family:var(--ff-head); font-size:11px; letter-spacing:.28em; color:var(--gold-dim); }
-.value b{ display:flex; align-items:center; gap:10px; color:#fff; font-family:var(--ff-head); font-size:14.5px; letter-spacing:.03em; margin-top:14px; }
+.value b{ display:flex; align-items:center; gap:10px; color:#fff; font-family:var(--ff-head); font-size:14.5px; letter-spacing:.03em; margin-top:14px; text-transform:uppercase; }
 .value b svg{ color:var(--gold); flex-shrink:0; }
 .value p{ margin-top:10px; font-size:13.5px; color:var(--muted); line-height:1.5; }
 
@@ -557,7 +557,7 @@ svg{ flex-shrink:0; }
 .fleet-item:hover img{ transform:scale(1.06); }
 .fleet-item::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%,rgba(5,7,12,.92)); }
 .fleet-caption{ position:absolute; left:18px; right:18px; bottom:16px; z-index:2; }
-.fleet-caption b{ display:block; color:#fff; font-size:14.5px; font-family:var(--ff-head); }
+.fleet-caption b{ display:block; color:#fff; font-size:14.5px; font-family:var(--ff-head); text-transform:uppercase; letter-spacing:.02em; }
 .fleet-caption span{ font-size:12px; color:var(--muted); }
 
 /* ---------- CONTACT ---------- */
