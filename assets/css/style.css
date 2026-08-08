@@ -534,9 +534,8 @@ svg{ flex-shrink:0; }
 .icon-row-item span{ font-size:12.5px; color:var(--muted); line-height:1.35; }
 
 /* ---------- VALUES ---------- */
-.values{ position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; margin-top:40px; }
-@media (max-width:960px){ .values{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-@media (max-width:520px){ .values{ grid-template-columns:minmax(0,1fr); } }
+.values{ position:relative; z-index:1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:40px; }
+@media (max-width:480px){ .values{ grid-template-columns:minmax(0,1fr); } }
 .value{
   padding:22px 20px 24px; border:1px solid var(--line-soft); border-radius:var(--radius-sm);
   background:var(--panel); position:relative; min-width:0; transition:border-color .25s ease, transform .2s ease;
@@ -549,7 +548,7 @@ svg{ flex-shrink:0; }
 .value p{ margin-top:10px; font-size:13.5px; color:var(--muted); line-height:1.5; }
 
 /* ---------- ABOUT SPLIT ---------- */
-.about{ position:relative; z-index:1; display:grid; grid-template-columns:.95fr 1.05fr; gap:64px; align-items:center; }
+.about{ position:relative; z-index:1; display:grid; grid-template-columns:.8fr 1.2fr; gap:64px; align-items:center; }
 @media (max-width:960px){ .about{ grid-template-columns:1fr; } }
 .about-media{ position:relative; }
 .about-media img{ border-radius:var(--radius); border:1px solid var(--line-soft); width:100%; height:520px; object-fit:cover; object-position:top; }
