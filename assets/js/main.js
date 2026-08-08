@@ -37,6 +37,42 @@ if (toTop) {
   });
 }
 
+// WhatsApp float — hidden near the top so it never covers the hero CTA
+const waFloat = document.querySelector('.wa-float');
+if (waFloat) {
+  const toggleWa = () => waFloat.classList.toggle('show', window.scrollY > 420);
+  window.addEventListener('scroll', toggleWa);
+  toggleWa();
+}
+
+// Animated stat counters
+const statEls = document.querySelectorAll('.stat-item b[data-count]');
+if ('IntersectionObserver' in window && statEls.length) {
+  const animateCount = (el) => {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1400;
+    const start = performance.now();
+    const step = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = Math.round(target * eased);
+      el.textContent = val + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const statIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        statIo.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  statEls.forEach(el => statIo.observe(el));
+}
+
 // Footer year
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
