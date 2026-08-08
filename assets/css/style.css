@@ -33,7 +33,6 @@ body{
   font-size:16.5px;
   line-height:1.68;
   -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
 }
 ::selection{ background:rgba(201,162,39,0.35); color:#fff; }
 img{ max-width:100%; display:block; }
