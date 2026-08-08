@@ -87,7 +87,7 @@ svg{ flex-shrink:0; }
 
 /* ---------- SVG line-pattern background ---------- */
 .circuit-bg{
-  position:absolute; inset:0; pointer-events:none; z-index:0;
+  position:absolute; inset:-64px; pointer-events:none; z-index:0;
   background-image:
     linear-gradient(var(--line-soft) 1px,transparent 1px),
     linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
@@ -95,6 +95,19 @@ svg{ flex-shrink:0; }
   -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 90%);
           mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 90%);
   opacity:.5;
+  animation:drift-grid 34s linear infinite;
+}
+@keyframes drift-grid{ from{ background-position:0 0; } to{ background-position:128px 96px; } }
+
+/* ---------- large emblem watermark ---------- */
+.watermark{
+  position:absolute; z-index:0; pointer-events:none; opacity:.05;
+  filter:grayscale(1) brightness(1.6); user-select:none;
+}
+.watermark img{ width:100%; height:100%; display:block; animation:watermark-drift 40s ease-in-out infinite; }
+@keyframes watermark-drift{
+  0%,100%{ transform:rotate(0deg) scale(1); }
+  50%{ transform:rotate(2.5deg) scale(1.035); }
 }
 .glow{
   position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; z-index:0;
