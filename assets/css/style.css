@@ -172,9 +172,6 @@ svg{ flex-shrink:0; }
 .hero-title em{ font-style:normal; color:var(--gold-light); }
 .hero-sub{ margin-top:24px; color:var(--muted); font-size:17.5px; line-height:1.75; max-width:48ch; }
 .hero-cta{ display:flex; flex-wrap:wrap; gap:16px; margin-top:38px; }
-.hero-stats{ display:flex; gap:40px; margin-top:56px; padding-top:30px; border-top:1px solid var(--line-soft); }
-.hero-stats div b{ display:block; font-family:var(--ff-head); font-size:24px; color:var(--gold-light); }
-.hero-stats div span{ font-size:11.5px; color:var(--muted-dim); letter-spacing:.08em; text-transform:uppercase; }
 
 .hero-frame{ position:relative; }
 .hero-frame-inner{
@@ -230,7 +227,6 @@ svg{ flex-shrink:0; }
   .hero-frame-inner{ aspect-ratio:4/4.6; }
   .hero-badge-wrap{ width:82px; height:82px; top:-18px; left:-14px; }
   .hero-frame-tag{ top:16px; right:-8px; }
-  .hero-stats{ flex-wrap:wrap; gap:26px 34px; }
 }
 @media (max-width:480px){
   .hero-frame-tag span{ display:none; }
