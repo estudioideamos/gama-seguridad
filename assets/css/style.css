@@ -24,7 +24,7 @@
 }
 
 *,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; overflow-x:hidden; }
+html{ scroll-behavior:smooth; overflow-x:clip; }
 body{
   margin:0;
   background:var(--bg);
