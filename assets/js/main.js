@@ -37,12 +37,17 @@ if (toTop) {
   });
 }
 
-// WhatsApp float — hidden near the top so it never covers the hero CTA
+// WhatsApp float — only appears once the hero has fully scrolled out of view,
+// so it never overlaps the hero CTA buttons at any viewport size
 const waFloat = document.querySelector('.wa-float');
-if (waFloat) {
-  const toggleWa = () => waFloat.classList.toggle('show', window.scrollY > 420);
-  window.addEventListener('scroll', toggleWa);
-  toggleWa();
+const heroSection = document.getElementById('inicio');
+if (waFloat && heroSection && 'IntersectionObserver' in window) {
+  const heroIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => waFloat.classList.toggle('show', !entry.isIntersecting));
+  }, { threshold: 0 });
+  heroIo.observe(heroSection);
+} else if (waFloat) {
+  waFloat.classList.add('show');
 }
 
 // Animated stat counters

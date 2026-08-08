@@ -574,7 +574,7 @@ svg{ flex-shrink:0; }
 
 /* ---------- back to top ---------- */
 .to-top{
-  position:fixed; right:22px; bottom:22px; width:46px; height:46px; border-radius:50%; z-index:90;
+  position:fixed; right:24px; bottom:92px; width:46px; height:46px; border-radius:50%; z-index:90;
   background:var(--panel); border:1px solid var(--line); color:var(--gold-light);
   display:flex; align-items:center; justify-content:center; cursor:pointer;
   opacity:0; pointer-events:none; transform:translateY(10px); transition:all .25s ease;
@@ -587,7 +587,7 @@ svg{ flex-shrink:0; }
 
 /* ---------- whatsapp float ---------- */
 .wa-float{
-  position:fixed; left:22px; bottom:22px; z-index:90;
+  position:fixed; right:22px; bottom:22px; z-index:91;
   width:56px; height:56px; border-radius:50%; padding:14px;
   background:linear-gradient(135deg,var(--gold-light),var(--gold)); color:#0a0a0a;
   display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow);
