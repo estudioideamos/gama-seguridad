@@ -632,8 +632,8 @@ svg{ flex-shrink:0; }
 .orbit-badge:hover .orbit-badge-ring{ animation-duration:9s; }
 .orbit-badge-ring path{ fill:none; stroke:none; }
 .orbit-badge-ring text{
-  fill:var(--gold-light); font-family:var(--ff-head); font-size:7.6px; font-weight:600;
-  letter-spacing:.1em; text-transform:uppercase;
+  fill:var(--gold-light); font-family:var(--ff-head); font-size:9.5px; font-weight:700;
+  letter-spacing:.03em; text-transform:uppercase;
 }
 @keyframes orbit-spin{ to{ transform:rotate(360deg); } }
 .orbit-badge-center{
@@ -642,7 +642,7 @@ svg{ flex-shrink:0; }
   transition:transform .45s cubic-bezier(.22,1,.36,1), background .3s ease;
 }
 .orbit-badge:hover .orbit-badge-center{ transform:scale(1.08) rotate(-8deg); background:rgba(201,162,39,.18); }
-@media (max-width:640px){ .orbit-badge{ width:140px; height:140px; } .orbit-badge-ring text{ font-size:6.6px; } }
+@media (max-width:640px){ .orbit-badge{ width:150px; height:150px; } .orbit-badge-ring text{ font-size:8.6px; } }
 
 /* ---------- FOOTER ---------- */
 .footer{ position:relative; overflow:hidden; background:#000; border-top:1px solid var(--line-soft); padding:0 0 28px; }
