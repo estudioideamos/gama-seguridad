@@ -501,7 +501,9 @@ svg{ flex-shrink:0; }
 .fleet-grid{ position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 @media (max-width:900px){ .fleet-grid{ grid-template-columns:1fr; } }
 .fleet-item{ position:relative; border-radius:var(--radius); overflow:hidden; border:1px solid var(--line-soft); }
-.fleet-item img{ height:300px; width:100%; object-fit:cover; transition:transform .5s ease; }
+.fleet-item img{ height:300px; width:100%; object-fit:cover; object-position:center 25%; transition:transform .5s ease; }
+.fleet-item--person img{ height:380px; object-position:top center; }
+@media (max-width:900px){ .fleet-item--person img{ height:420px; } }
 .fleet-item:hover img{ transform:scale(1.06); }
 .fleet-item::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%,rgba(5,7,12,.92)); }
 .fleet-caption{ position:absolute; left:18px; right:18px; bottom:16px; z-index:2; }
