@@ -532,6 +532,7 @@ svg{ flex-shrink:0; }
 .value-num{ font-family:var(--ff-head); font-size:11px; letter-spacing:.28em; color:var(--gold-dim); }
 .value b{ display:flex; align-items:flex-start; gap:9px; color:#fff; font-family:var(--ff-head); font-size:14px; letter-spacing:.03em; margin-top:14px; text-transform:uppercase; line-height:1.35; min-width:0; }
 .value b svg{ color:var(--gold); flex-shrink:0; margin-top:3px; }
+.value b span{ min-width:0; word-break:break-word; }
 .value p{ margin-top:10px; font-size:13.5px; color:var(--muted); line-height:1.5; }
 
 /* ---------- ABOUT SPLIT ---------- */
@@ -588,17 +589,51 @@ svg{ flex-shrink:0; }
 
 /* ---------- CTA BAND ---------- */
 .cta-band{
-  position:relative; overflow:hidden; padding:70px 0; text-align:center;
+  position:relative; overflow:hidden; padding:76px 0;
   background:linear-gradient(135deg,#0d1526,#141f38);
   border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);
 }
-.cta-band h2{ font-size:clamp(24px,3.6vw,36px); color:#fff; }
+.cta-band-inner{ display:flex; align-items:center; justify-content:space-between; gap:56px; flex-wrap:wrap; }
+.cta-band-copy{ max-width:560px; }
+.cta-band h2{ font-size:clamp(24px,3.4vw,34px); color:#fff; }
 .cta-band p{ margin-top:14px; color:var(--muted); }
-.cta-band .hero-cta{ justify-content:center; margin-top:30px; }
+.cta-band .hero-cta{ margin-top:30px; }
+@media (max-width:860px){ .cta-band-inner{ justify-content:center; text-align:center; } .cta-band .hero-cta{ justify-content:center; } }
+
+.orbit-badge{
+  position:relative; flex:0 0 auto; width:172px; height:172px; border-radius:50%;
+  display:grid; place-items:center; border:1px solid var(--line-soft); background:rgba(5,7,12,.25);
+  transition:transform .4s cubic-bezier(.22,1,.36,1), background .35s ease, border-color .35s ease;
+}
+.orbit-badge:hover{ transform:scale(1.045); border-color:var(--gold-dim); background:rgba(201,162,39,.08); }
+.orbit-badge-ring{
+  position:absolute; inset:9px; width:calc(100% - 18px); height:calc(100% - 18px);
+  overflow:visible; animation:orbit-spin 17s linear infinite; transform-origin:center center;
+}
+.orbit-badge:hover .orbit-badge-ring{ animation-duration:9s; }
+.orbit-badge-ring path{ fill:none; stroke:none; }
+.orbit-badge-ring text{
+  fill:var(--gold-light); font-family:var(--ff-head); font-size:7.6px; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase;
+}
+@keyframes orbit-spin{ to{ transform:rotate(360deg); } }
+.orbit-badge-center{
+  width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--line); background:rgba(201,162,39,.1); color:var(--gold-light);
+  transition:transform .45s cubic-bezier(.22,1,.36,1), background .3s ease;
+}
+.orbit-badge:hover .orbit-badge-center{ transform:scale(1.08) rotate(-8deg); background:rgba(201,162,39,.18); }
+@media (max-width:640px){ .orbit-badge{ width:140px; height:140px; } .orbit-badge-ring text{ font-size:6.6px; } }
 
 /* ---------- FOOTER ---------- */
-.footer{ background:#000; border-top:1px solid var(--line-soft); padding:64px 0 26px; }
-.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; }
+.footer{ position:relative; overflow:hidden; background:#000; border-top:1px solid var(--line-soft); padding:72px 0 28px; }
+.footer::before{
+  content:""; position:absolute; z-index:0; top:-220px; left:50%; transform:translateX(-50%);
+  width:900px; height:500px; pointer-events:none;
+  background:radial-gradient(ellipse 50% 50% at 50% 100%,rgba(201,162,39,0.1),transparent 72%);
+}
+.footer .container{ position:relative; z-index:1; }
+.footer-grid{ display:grid; grid-template-columns:1.3fr .9fr .9fr 1.15fr; gap:40px; }
 @media (max-width:860px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
 @media (max-width:560px){ .footer-grid{ grid-template-columns:1fr; } }
 .footer-brand{ display:flex; gap:12px; align-items:center; }
@@ -613,14 +648,33 @@ svg{ flex-shrink:0; }
 .footer-social{ display:flex; gap:12px; margin-top:6px; }
 .footer-social a{
   width:38px; height:38px; border-radius:50%; border:1px solid var(--line-soft);
-  display:flex; align-items:center; justify-content:center; color:var(--muted);
+  display:flex; align-items:center; justify-content:center; color:var(--muted); transition:color .2s ease, border-color .2s ease, transform .2s ease;
 }
-.footer-social a:hover{ color:var(--gold-light); border-color:var(--gold-dim); }
+.footer-social a:hover{ color:var(--gold-light); border-color:var(--gold-dim); transform:translateY(-2px); }
+
+.footer-contact-label{ font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-light); margin-bottom:10px; }
+.footer-contact h3{ font-size:19px; color:#fff; margin-bottom:18px; }
+.footer-whatsapp-link{
+  display:inline-flex; align-items:center; gap:10px; padding:12px 20px;
+  border-radius:999px; background:linear-gradient(135deg,var(--gold-light),var(--gold)); color:#0a0a0a;
+  font-family:var(--ff-head); font-size:12.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.footer-whatsapp-link i{ font-style:normal; transition:transform .25s ease; }
+.footer-whatsapp-link:hover{ transform:translateY(-2px); box-shadow:0 12px 26px -10px rgba(201,162,39,.55); }
+.footer-whatsapp-link:hover i{ transform:translate(2px,-2px); }
+.footer-contact p{ margin-top:14px; font-size:13.5px; color:var(--muted); }
+.footer-contact p a{ color:var(--muted); }
+.footer-contact p a:hover{ color:var(--gold-light); }
+
 .footer-bottom{
   margin-top:56px; padding-top:24px; border-top:1px solid var(--line-soft);
-  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
   font-size:12.5px; color:var(--muted-dim);
 }
+.footer-seal{ display:flex; align-items:center; gap:10px; }
+.footer-seal img{ width:32px; height:32px; border-radius:50%; opacity:.85; }
+.footer-seal small{ font-family:var(--ff-head); font-size:10px; letter-spacing:.16em; color:var(--muted); }
 
 /* ---------- back to top ---------- */
 .to-top{
