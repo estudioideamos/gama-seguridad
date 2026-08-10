@@ -49,11 +49,11 @@ if (toTop) {
 // so it never overlaps the hero CTA buttons at any viewport size
 const waFloat = document.querySelector('.wa-float');
 const heroSection = document.getElementById('inicio');
-if (waFloat && heroSection && 'IntersectionObserver' in window) {
-  const heroIo = new IntersectionObserver((entries) => {
-    entries.forEach(entry => waFloat.classList.toggle('show', !entry.isIntersecting));
-  }, { threshold: 0 });
-  heroIo.observe(heroSection);
+if (waFloat && heroSection) {
+  const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+  const toggleWaFloat = () => waFloat.classList.toggle('show', window.scrollY > heroBottom - 80);
+  window.addEventListener('scroll', toggleWaFloat, { passive: true });
+  toggleWaFloat();
 } else if (waFloat) {
   waFloat.classList.add('show');
 }
