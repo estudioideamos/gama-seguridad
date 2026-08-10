@@ -113,7 +113,7 @@ if (canHover) {
   document.addEventListener('mousemove', (e) => {
     if (glowRaf) return;
     glowRaf = requestAnimationFrame(() => {
-      glowEl.style.transform = `translate(${e.clientX}px, ${e.clientY + window.scrollY}px)`;
+      glowEl.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       glowEl.style.opacity = '1';
       glowRaf = null;
     });
