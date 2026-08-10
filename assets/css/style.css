@@ -87,7 +87,7 @@ svg{ flex-shrink:0; }
 
 /* ---------- SVG line-pattern background ---------- */
 .circuit-bg{
-  position:absolute; inset:-64px; pointer-events:none; z-index:0;
+  position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:0;
   background-image:
     linear-gradient(var(--line-soft) 1px,transparent 1px),
     linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
