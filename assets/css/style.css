@@ -250,7 +250,10 @@ svg{ flex-shrink:0; }
   .hero-frame-tag{ top:16px; right:-8px; }
 }
 @media (max-width:480px){
-  .hero-frame-tag span{ display:none; }
+  .hero-frame-tag{
+    width:32px; height:32px; padding:0; justify-content:center; right:-4px; top:14px;
+  }
+  .hero-frame-tag span:last-child{ display:none; }
 }
 
 /* ---------- MARQUEE STRIP ---------- */
@@ -653,6 +656,24 @@ svg{ flex-shrink:0; }
 .footer p.tag{ margin-top:16px; color:var(--muted); font-size:13.5px; max-width:34ch; }
 .footer h4{ font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted-dim); margin-bottom:18px; }
 .footer ul{ display:flex; flex-direction:column; gap:11px; }
+
+.footer-accordion summary{
+  font-family:var(--ff-body); font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted-dim);
+  margin-bottom:18px; list-style:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.footer-accordion summary::-webkit-details-marker{ display:none; }
+.footer-accordion summary::after{
+  content:"+"; font-family:var(--ff-body); font-size:15px; color:var(--gold-dim); line-height:1;
+  transition:transform .2s ease;
+}
+.footer-accordion[open] summary::after{ transform:rotate(45deg); }
+.footer-accordion ul{ padding-bottom:4px; }
+@media (min-width:769px){
+  .footer-accordion summary{ cursor:default; }
+  .footer-accordion summary::after{ display:none; }
+  .footer-accordion:not([open]) > *:not(summary){ display:flex !important; }
+}
 .footer ul a{ font-size:14px; color:var(--muted); }
 .footer ul a:hover{ color:var(--gold-light); }
 .footer-social{ display:flex; gap:12px; margin-top:6px; }
@@ -724,3 +745,19 @@ svg{ flex-shrink:0; }
 .wa-float.show{ opacity:1; pointer-events:auto; transform:translateY(0) scale(1); }
 @keyframes wa-breathe{ 0%,100%{ box-shadow:0 0 0 0 rgba(232,199,102,.45),var(--shadow); } 50%{ box-shadow:0 0 0 9px rgba(232,199,102,0),var(--shadow); } }
 .wa-float.show{ animation:wa-breathe 2.8s ease-in-out infinite; }
+
+/* ---------- mobile: centrar contenido principal ---------- */
+@media (max-width:768px){
+  .section-head{ text-align:center; margin-left:auto; margin-right:auto; }
+  .section-head .eyebrow{ justify-content:center; }
+  .eyebrow::before{ display:none; }
+  .hero-copy{ text-align:center; }
+  .hero-copy .eyebrow{ justify-content:center; }
+  .hero-cta{ justify-content:center; }
+  .hero-stats{ justify-content:center; text-align:left; }
+  .feature-copy, .about-copy{ text-align:center; }
+  .feature-copy .eyebrow, .about-copy .eyebrow{ justify-content:center; }
+  .feature-copy .hero-cta{ justify-content:center; }
+  .feature-list, .values{ text-align:left; }
+  .footer-cta-eyebrow{ justify-content:center; }
+}
