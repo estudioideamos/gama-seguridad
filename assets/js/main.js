@@ -1,12 +1,20 @@
 // Nav burger toggle
 const navBurger = document.getElementById('navBurger');
 const navLinks = document.getElementById('navLinks');
+const navBurgerIcon = document.getElementById('navBurgerIcon');
 if (navBurger && navLinks) {
+  const setMenuOpen = (open) => {
+    navLinks.classList.toggle('open', open);
+    navBurger.setAttribute('aria-expanded', String(open));
+    navBurger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    if (navBurgerIcon) navBurgerIcon.setAttribute('href', open ? '#ic-close' : '#ic-menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
   navBurger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+    setMenuOpen(!navLinks.classList.contains('open'));
   });
   navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => navLinks.classList.remove('open'));
+    a.addEventListener('click', () => setMenuOpen(false));
   });
 }
 
