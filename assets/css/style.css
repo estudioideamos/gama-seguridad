@@ -736,6 +736,7 @@ svg{ flex-shrink:0; }
 
 @media (max-width:560px){
   .footer-grid > div:first-child{ display:flex; flex-direction:column; align-items:center; text-align:center; }
+  .footer-brand{ flex-direction:column; gap:10px; }
   .footer p.tag{ margin-left:auto; margin-right:auto; }
   .footer-social{ justify-content:center; }
   .footer-accordion{ text-align:center; }
@@ -744,6 +745,7 @@ svg{ flex-shrink:0; }
   .footer-contact{ text-align:center; }
   .footer-whatsapp-link{ margin-left:auto; margin-right:auto; }
   .footer-bottom{ justify-content:center; text-align:center; }
+  .footer-bottom > *{ flex-basis:100%; }
 }
 
 /* ---------- back to top ---------- */
