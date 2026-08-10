@@ -734,6 +734,18 @@ svg{ flex-shrink:0; }
 }
 .footer-seal img{ width:42px; height:42px; border-radius:50%; opacity:.9; }
 
+@media (max-width:560px){
+  .footer-grid > div:first-child{ display:flex; flex-direction:column; align-items:center; text-align:center; }
+  .footer p.tag{ margin-left:auto; margin-right:auto; }
+  .footer-social{ justify-content:center; }
+  .footer-accordion{ text-align:center; }
+  .footer-accordion summary{ justify-content:center; gap:8px; }
+  .footer-accordion ul{ align-items:center; }
+  .footer-contact{ text-align:center; }
+  .footer-whatsapp-link{ margin-left:auto; margin-right:auto; }
+  .footer-bottom{ justify-content:center; text-align:center; }
+}
+
 /* ---------- back to top ---------- */
 .to-top{
   position:fixed; right:24px; bottom:92px; width:46px; height:46px; border-radius:50%; z-index:90;
