@@ -692,7 +692,7 @@ svg{ flex-shrink:0; }
 }
 .footer-accordion[open] summary::after{ transform:rotate(45deg); }
 .footer-accordion ul{ padding-bottom:4px; }
-@media (min-width:961px){
+@media (hover:hover) and (pointer:fine){
   .footer-accordion summary{ cursor:default; pointer-events:none; }
   .footer-accordion summary::after{ display:none; }
 }

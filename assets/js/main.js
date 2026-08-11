@@ -18,8 +18,10 @@ if (navBurger && navLinks) {
   });
 }
 
-// Footer accordions: start open on desktop (markup default), closed on mobile
-if (window.innerWidth <= 960) {
+// Footer accordions: start open on mouse/desktop devices (markup default),
+// closed on touch-first devices. Uses hover/pointer instead of viewport width
+// so it isn't thrown off by browser zoom or OS display scaling.
+if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
   document.querySelectorAll('.footer-accordion[open]').forEach(el => el.removeAttribute('open'));
 }
 
