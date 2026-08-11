@@ -18,6 +18,11 @@ if (navBurger && navLinks) {
   });
 }
 
+// Footer accordions: start open on desktop (markup default), closed on mobile
+if (window.innerWidth <= 960) {
+  document.querySelectorAll('.footer-accordion[open]').forEach(el => el.removeAttribute('open'));
+}
+
 // Scroll reveal
 const revealEls = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window && revealEls.length) {

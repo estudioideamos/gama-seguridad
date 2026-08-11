@@ -692,10 +692,9 @@ svg{ flex-shrink:0; }
 }
 .footer-accordion[open] summary::after{ transform:rotate(45deg); }
 .footer-accordion ul{ padding-bottom:4px; }
-@media (min-width:769px){
-  .footer-accordion summary{ cursor:default; }
+@media (min-width:961px){
+  .footer-accordion summary{ cursor:default; pointer-events:none; }
   .footer-accordion summary::after{ display:none; }
-  .footer-accordion:not([open]) > *:not(summary){ display:flex !important; }
 }
 .footer ul a{ font-size:14px; color:var(--muted); }
 .footer ul a:hover{ color:var(--gold-light); }
