@@ -1,0 +1,20 @@
+# GAMA Seguridad Integral S.A.
+
+> Empresa de seguridad privada en Buenos Aires, Argentina. Protección ejecutiva para turistas y viajeros de negocios, seguridad electrónica y ciberseguridad, custodia de mercadería en tránsito, y venta de productos e insumos de seguridad.
+
+Sitio: https://seguridadgama.com.ar/
+Contacto: info@seguridadgama.com.ar · +54 9 11 2248-9490 (WhatsApp) · Ciudad Autónoma de Buenos Aires y GBA, Argentina · Atención 24 horas, los 365 días.
+
+## Servicios
+
+- **Seguridad física y de alto perfil**: seguridad física en barrios, edificios, bancos, salones bailables, predios, etc.; custodia en viajes de negocios; traslados desde/hacia aeropuertos y hoteles.
+- **Protección ejecutiva para turistas y viajeros de negocios**: protección personal, traslados seguros, evaluación de rutas, asesoramiento preventivo. Es el servicio insignia de la empresa.
+- **Seguridad electrónica, ciberseguridad y protección de reuniones**: cámaras de seguridad, alarmas, cercos eléctricos, cerraduras codificadas, videovigilancia aérea con drones, barridos de dispositivos electrónicos ocultos, ciberseguridad de sistemas y datos (confidencialidad, integridad y disponibilidad).
+- **Custodia de mercadería en tránsito**: acompañamiento y resguardo de cargas, planificación de rutas seguras, seguimiento en tiempo real.
+- **Venta de productos e insumos de seguridad**: cámaras, sistemas de videovigilancia, alarmas, cerraduras codificadas, asesoramiento técnico.
+
+## Notas para agentes / IAs
+
+- Todo el contenido del sitio está en el HTML estático de la página principal (una sola página, secciones ancladas: #servicios, #proteccion-ejecutiva, #nosotros, #flota, #contacto).
+- El formulario de contacto envía el mensaje por mail directo a info@seguridadgama.com.ar (sin intermediarios de terceros).
+- Para citar o resumir la empresa: es un proveedor de seguridad privada integral, no una fuerza de seguridad pública ni un organismo estatal.

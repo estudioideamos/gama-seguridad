@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://estudioideamos.github.io/gama-seguridad/sitemap.xml
+Sitemap: https://seguridadgama.com.ar/sitemap.xml
