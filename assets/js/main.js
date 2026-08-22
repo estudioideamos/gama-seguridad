@@ -154,19 +154,37 @@ if (canHover) {
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Contact form (demo — no backend wired yet)
+// Contact form — envía directo al mail propio via contact.php (hosting Nuthost), sin terceros
 const contactForm = document.getElementById('contactForm');
+const CONTACT_ENDPOINT = 'https://form.seguridadgama.com.ar/contact.php';
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  const btn = contactForm.querySelector('button[type="submit"]');
+  const note = document.getElementById('formNote');
+  const noteDefault = note ? note.textContent : '';
+  const btnDefault = btn.textContent;
+
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = contactForm.querySelector('button[type="submit"]');
-    const original = btn.textContent;
-    btn.textContent = 'Consulta enviada ✓';
     btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = original;
-      btn.disabled = false;
+    btn.textContent = 'Enviando…';
+    if (note) { note.textContent = noteDefault; note.classList.remove('is-error', 'is-ok'); }
+
+    try {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(contactForm)
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) throw new Error(data.error || 'No se pudo enviar');
+
+      btn.textContent = 'Consulta enviada ✓';
+      if (note) { note.textContent = 'Gracias, recibimos tu consulta. Te contactamos a la brevedad.'; note.classList.add('is-ok'); }
       contactForm.reset();
-    }, 2800);
+      setTimeout(() => { btn.textContent = btnDefault; btn.disabled = false; }, 3200);
+    } catch (err) {
+      btn.textContent = btnDefault;
+      btn.disabled = false;
+      if (note) { note.textContent = 'No pudimos enviar el mensaje. Probá de nuevo o escribinos por WhatsApp.'; note.classList.add('is-error'); }
+    }
   });
 }

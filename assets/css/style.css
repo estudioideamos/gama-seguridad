@@ -626,6 +626,9 @@ svg{ flex-shrink:0; }
 .field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--gold-dim); }
 .form .btn{ width:100%; justify-content:center; margin-top:6px; border:none; }
 .form-note{ margin-top:14px; font-size:12.5px; color:var(--muted-dim); text-align:center; }
+.form-note.is-error{ color:#e58a8a; }
+.form-note.is-ok{ color:var(--gold-light); }
+.hp-field{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 
 /* ---------- ORBIT CTA EYEBROW ---------- */
 .footer-cta-eyebrow{
