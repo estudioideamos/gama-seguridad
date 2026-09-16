@@ -9,9 +9,15 @@
  * ahí el fetch() del formulario en assets/js/main.js.
  */
 
+// No exponer detalles de errores de PHP en la respuesta (el hosting compartido
+// puede traer display_errors activado por defecto).
+ini_set('display_errors', '0');
+error_reporting(0);
+
 $allowedOrigins = ['https://seguridadgama.com.ar', 'https://www.seguridadgama.com.ar'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
-if (in_array($origin, $allowedOrigins, true)) {
+$originAllowed = in_array($origin, $allowedOrigins, true);
+if ($originAllowed) {
     header("Access-Control-Allow-Origin: $origin");
 }
 header('Access-Control-Allow-Methods: POST, OPTIONS');
@@ -29,16 +35,26 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-function clean_field($value) {
-    $value = trim((string) $value);
-    return preg_replace('/[\r\n]+/', ' ', $value);
+// CORS solo controla si el navegador deja LEER la respuesta; no evita que un
+// bot mande el POST directo sin pasar por el navegador. Exigir un Origin
+// válido corta la mayoría de ese abuso automatizado.
+if (!$originAllowed) {
+    http_response_code(403);
+    echo json_encode(['ok' => false, 'error' => 'Origen no permitido']);
+    exit;
 }
 
-$nombre   = clean_field($_POST['nombre'] ?? '');
-$telefono = clean_field($_POST['telefono'] ?? '');
-$email    = clean_field($_POST['email'] ?? '');
-$servicio = clean_field($_POST['servicio'] ?? '');
-$mensaje  = trim((string) ($_POST['mensaje'] ?? ''));
+function clean_field($value, $maxLength = 200) {
+    $value = trim((string) $value);
+    $value = preg_replace('/[\r\n]+/', ' ', $value);
+    return mb_substr($value, 0, $maxLength);
+}
+
+$nombre   = clean_field($_POST['nombre'] ?? '', 100);
+$telefono = clean_field($_POST['telefono'] ?? '', 40);
+$email    = clean_field($_POST['email'] ?? '', 150);
+$servicio = clean_field($_POST['servicio'] ?? '', 100);
+$mensaje  = mb_substr(trim((string) ($_POST['mensaje'] ?? '')), 0, 3000);
 $honeypot = trim((string) ($_POST['sitio_web'] ?? '')); // campo oculto anti-spam
 
 // Si el honeypot viene completo, es un bot: respondemos "ok" sin enviar nada.
