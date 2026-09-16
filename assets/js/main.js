@@ -52,14 +52,22 @@ if (toTop) {
   });
 }
 
-// WhatsApp float — only appears once the hero has fully scrolled out of view,
-// so it never overlaps the hero CTA buttons at any viewport size
+// WhatsApp float — appears once the hero has fully scrolled out of view
+// (so it never overlaps the hero CTA buttons), and hides again once the
+// footer comes into view (so it doesn't sit on top of the footer content).
 const waFloat = document.querySelector('.wa-float');
 const heroSection = document.getElementById('inicio');
+const footerSection = document.querySelector('.footer');
 if (waFloat && heroSection) {
   const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-  const toggleWaFloat = () => waFloat.classList.toggle('show', window.scrollY > heroBottom - 80);
+  const toggleWaFloat = () => {
+    const pastHero = window.scrollY > heroBottom - 80;
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const reachedFooter = footerSection && scrollBottom > footerSection.offsetTop + 100;
+    waFloat.classList.toggle('show', pastHero && !reachedFooter);
+  };
   window.addEventListener('scroll', toggleWaFloat, { passive: true });
+  window.addEventListener('resize', toggleWaFloat);
   toggleWaFloat();
 } else if (waFloat) {
   waFloat.classList.add('show');
